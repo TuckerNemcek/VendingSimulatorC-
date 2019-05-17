@@ -9,7 +9,7 @@ namespace VendingSimulator
 
 
 
-        Button Button1 = new Button();
+            Button Button1 = new Button();
             Button1.Num = 1;
             Button1.Name = "Coke";
             Button1.isLit = false;
@@ -45,7 +45,7 @@ namespace VendingSimulator
             Button6.isLit = true;
             Button6.Price = 1.50;
 
-           
+
 
             System.Console.WriteLine(Button1.GetButtonStatus());
             System.Console.WriteLine(Button2.GetButtonStatus());
@@ -54,15 +54,53 @@ namespace VendingSimulator
             System.Console.WriteLine(Button5.GetButtonStatus());
             System.Console.WriteLine(Button6.GetButtonStatus());
 
-            int selectedNum = 0;
-
-            Console.WriteLine("Please Enter The Number of the Soda you would like : ");
-            selectedNum = Convert.ToInt32(Console.ReadLine());
-
-            System.Console.WriteLine(selectedNum);
 
 
+            System.Console.WriteLine();
+            System.Console.WriteLine();
+
+            System.Console.Write("Enter the number of the beverage you would like :");
+            string askUser = System.Console.ReadLine();
+            int userInput = int.Parse(askUser);
+
+            bool wrong = true;
+            while (wrong == true)
+            {
+
+                if (userInput > 6)
+                {
+                    System.Console.WriteLine();
+                    System.Console.WriteLine("That is not a valid selection. Please select a number 1-6");
+                    wrong = true;
+                    askUser = System.Console.ReadLine();
+                    userInput = int.Parse(askUser);
+                }
+
+                if (userInput < 1)
+                {
+                    System.Console.WriteLine();
+                    System.Console.WriteLine("That is not a valid selection. Please select a number 1-6");
+                    wrong = true;
+                    askUser = System.Console.ReadLine();
+                    userInput = int.Parse(askUser);
+
+                }
+                if (userInput < 6 && userInput > 1)
+                {
+                    wrong = false;
+                    
+                }
+
+                // I don't feel the need to account for decimals because we are assuming a physical input, and no one is going to hit button 1.5
+            }
+            //  public double user selected = 0;
 
         }
+
+
+            
+
+
     }
 }
+

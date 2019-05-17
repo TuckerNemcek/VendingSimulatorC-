@@ -19,11 +19,6 @@ namespace VendingSimulator
             else status = "is Not Available";
             return " # " + this.Num + " " + this.Name + " $" + this.Price + " " +  status  ;
         } 
-
-        //public int MakeSelection()
-       //{
-        //   public int selected = 0;
-        //   Console.WriteLine("Please Enter the number ");
-       // }
+        
     }
 }
