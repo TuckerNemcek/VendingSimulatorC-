@@ -6,38 +6,63 @@ namespace VendingSimulator
     {
         static void Main(string[] args)
         {
-            Button Button1 = new Button();
+
+
+
+        Button Button1 = new Button();
+            Button1.Num = 1;
             Button1.Name = "Coke";
             Button1.isLit = false;
             Button1.Price = 1.25;
 
             Button Button2 = new Button();
+            Button2.Num = 2;
             Button2.Name = "Sprite";
             Button2.isLit = true;
             Button2.Price = 1.25;
 
             Button Button3 = new Button();
+            Button3.Num = 3;
             Button3.Name = "Dr Pepper";
             Button3.isLit = false;
             Button3.Price = 1.25;
 
             Button Button4 = new Button();
+            Button4.Num = 4;
             Button4.Name = "Mr Pibb";
             Button4.isLit = true;
             Button4.Price = 1.25;
 
             Button Button5 = new Button();
+            Button5.Num = 5;
             Button5.Name = "Mellow Yellow";
             Button5.isLit = true;
             Button5.Price = 1.25;
 
             Button Button6 = new Button();
+            Button6.Num = 6;
             Button6.Name = "Water";
             Button6.isLit = true;
             Button6.Price = 1.50;
 
+           
 
             System.Console.WriteLine(Button1.GetButtonStatus());
+            System.Console.WriteLine(Button2.GetButtonStatus());
+            System.Console.WriteLine(Button3.GetButtonStatus());
+            System.Console.WriteLine(Button4.GetButtonStatus());
+            System.Console.WriteLine(Button5.GetButtonStatus());
+            System.Console.WriteLine(Button6.GetButtonStatus());
+
+            int selectedNum = 0;
+
+            Console.WriteLine("Please Enter The Number of the Soda you would like : ");
+            selectedNum = Convert.ToInt32(Console.ReadLine());
+
+            System.Console.WriteLine(selectedNum);
+
+
+
         }
     }
 }
