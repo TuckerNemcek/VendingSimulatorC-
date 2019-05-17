@@ -12,7 +12,10 @@ namespace VendingSimulator
 
         public string GetButtonStatus()
         {
-            return this.Name + " $" + this.Price + " " +  this.isLit  ;
-        }
+            string status = "";
+            if (isLit) status = "Is Available";
+            else status = "is Not Available";
+            return this.Name + " $" + this.Price + " " +  status  ;
+        } 
     }
 }
