@@ -122,7 +122,15 @@ namespace VendingSimulator
             double moneyRequired = price;
             System.Console.Write("You entered $" +moneyGiven + " ");
 
-            while (moneyGiven <= moneyRequired | moneyGiven > 5)
+            if (moneyGiven == moneyRequired)
+            {
+                System.Console.WriteLine();
+
+                System.Console.WriteLine("Here is your " + name + ". Have a great day and please hire me!;");
+                Environment.Exit(0);
+            }
+
+            while (moneyGiven <= moneyRequired || moneyGiven > 5)
             {
                 if (moneyGiven > 5)
                 {
@@ -133,14 +141,16 @@ namespace VendingSimulator
 
                 if (moneyGiven < moneyRequired)
                 {
-                    moneyRequired = price - moneyGiven;
+                    moneyRequired = (moneyRequired - moneyGiven);
                     System.Console.WriteLine("Thank you, please insert $" + moneyRequired);
                     Console.Write("$");
                     askForMoney = System.Console.ReadLine();
                     moneyGiven = double.Parse(askForMoney);
-
                 }
-
+                else
+                {
+                    break;
+                }
 
             }
 
@@ -153,6 +163,8 @@ namespace VendingSimulator
             System.Console.WriteLine();
 
             System.Console.WriteLine("Here is your " + name +". Have a great day and please hire me!;");
+            Environment.Exit(0);
+
 
 
         }
