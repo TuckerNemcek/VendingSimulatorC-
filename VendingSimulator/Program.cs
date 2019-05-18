@@ -47,12 +47,12 @@ namespace VendingSimulator
                
 
             Button[] B = new Button[6];
-            B[1] = Button1;
-            B[2] = Button2;
-            B[3] = Button3;
-            B[4] = Button4;
-            B[5] = Button5;
-            B[6] = Button6;
+            B[0] = Button1;
+            B[1] = Button2;
+            B[2] = Button3;
+            B[3] = Button4;
+            B[4] = Button5;
+            B[5] = Button6;
 
 
             System.Console.WriteLine(Button1.GetButtonStatus());
@@ -100,9 +100,9 @@ namespace VendingSimulator
 
             }
             int num = B[userInput].Num;
-            string name = B[userInput -1].Name;
-            bool isAvailable = B[userInput -1].isLit;
-            double price = B[userInput -1].Price;
+            string name = B[userInput].Name;
+            bool isAvailable = B[userInput].isLit;
+            double price = B[userInput].Price;
             
 
             System.Console.WriteLine("Your selected beverage is is " + name);
