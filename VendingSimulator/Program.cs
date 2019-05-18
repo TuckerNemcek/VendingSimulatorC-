@@ -44,15 +44,10 @@ namespace VendingSimulator
             Button6.Name = "Water";
             Button6.isLit = true;
             Button6.Price = 1.50;
-               
 
-            Button[] B = new Button[6];
-            B[0] = Button1;
-            B[1] = Button2;
-            B[2] = Button3;
-            B[3] = Button4;
-            B[4] = Button5;
-            B[5] = Button6;
+
+            Button[] B = new Button[6] { Button1, Button2, Button3, Button4, Button5, Button6 };
+   
 
 
             System.Console.WriteLine(Button1.GetButtonStatus());
@@ -65,6 +60,9 @@ namespace VendingSimulator
 
             System.Console.WriteLine();
             System.Console.WriteLine();
+
+
+         //   System.Console.Write("Button1.Name is " + Button1.Name);
 
             System.Console.Write("Enter the number of the beverage you would like :");
             string askUser = System.Console.ReadLine();
@@ -80,7 +78,7 @@ namespace VendingSimulator
                     System.Console.WriteLine("That is not a valid selection. Please select a number 1-6");
                     wrong = true;
                     askUser = System.Console.ReadLine();
-                    userInput = int.Parse(askUser);
+                    
                 }
 
                 if (userInput < 1)
@@ -92,7 +90,7 @@ namespace VendingSimulator
                     userInput = int.Parse(askUser);
 
                 };
-                if (userInput < 6 && userInput > 1)
+                if (userInput <= 6 && userInput >= 1)
                 {
                     wrong = false;
 
@@ -100,35 +98,74 @@ namespace VendingSimulator
 
             }
             int num = B[userInput -1].Num;
-            string name = B[userInput -1].Name;
+            string name = B[(userInput -1)].Name;
             bool isAvailable = B[userInput -1].isLit;
             double price = B[userInput -1].Price;
             
 
-            System.Console.WriteLine("Your selected beverage is is " + name);
+            System.Console.WriteLine("Your selected beverage is " + name);
             if (isAvailable == false)
             {
                 System.Console.WriteLine("Sorry, that beverage is unavailable at this time.");
+                Environment.Exit(0);
             }
             else
             {
-                System.Console.WriteLine("That will be $" + price + " please insert money below");
+                System.Console.WriteLine("That will be $" + price + "! please insert money");
             }
 
 
+            string askForMoney = System.Console.ReadLine();
+            double moneyGiven = double.Parse(askForMoney);
+            double moneyRequired = price;
+            System.Console.Write("You entered $" +moneyGiven + " ");
+
+            while (moneyGiven <= moneyRequired | moneyGiven > 5)
+            {
+                if (moneyGiven > 5)
+                {
+                    System.Console.WriteLine("Sorry, I only accept $1 bills, $5 bills and change, please give me smaller change");
+                    askForMoney = System.Console.ReadLine();
+                    moneyGiven = double.Parse(askForMoney);
+                }
+
+                if (moneyGiven < moneyRequired)
+                {
+                    moneyRequired = price - moneyGiven;
+                    System.Console.WriteLine("Thank you, please insert $" + moneyRequired);
+                    askForMoney = System.Console.ReadLine();
+                    moneyGiven = double.Parse(askForMoney);
+
+                }
+
+
+            }
+
+            if (moneyGiven > moneyRequired)
+            {
+                double change = moneyGiven - moneyRequired;
+                System.Console.WriteLine("Thank you, here is your change: $" + change);
+
+            }
+            System.Console.WriteLine();
+
+            System.Console.WriteLine("here is your " + name);
+
+
         }
 
-        public static int userInput { get; private set; }
+
         // I don't feel the need to account for decimals because we are assuming a physical input, and no one is going to hit button 1.5
     }
-            //  public double user selected = 0;
-
-        }
 
 
-            
+
+}
 
 
-    
+
+
+
+
 
 
