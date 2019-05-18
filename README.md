@@ -1,4 +1,4 @@
-# VendingSimulatorC-
+# VendingSimulatorC#
 
 This is a vending machine simulator that runs in the console.
 
