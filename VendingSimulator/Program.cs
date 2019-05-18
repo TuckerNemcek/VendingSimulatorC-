@@ -99,10 +99,10 @@ namespace VendingSimulator
                 }
 
             }
-            int num = B[userInput].Num;
-            string name = B[userInput].Name;
-            bool isAvailable = B[userInput].isLit;
-            double price = B[userInput].Price;
+            int num = B[userInput -1].Num;
+            string name = B[userInput -1].Name;
+            bool isAvailable = B[userInput -1].isLit;
+            double price = B[userInput -1].Price;
             
 
             System.Console.WriteLine("Your selected beverage is is " + name);
