@@ -78,7 +78,9 @@ namespace VendingSimulator
                     System.Console.WriteLine("That is not a valid selection. Please select a number 1-6");
                     wrong = true;
                     askUser = System.Console.ReadLine();
-                    
+                    userInput = int.Parse(askUser);
+
+
                 }
 
                 if (userInput < 1)
@@ -114,7 +116,7 @@ namespace VendingSimulator
                 System.Console.WriteLine("That will be $" + price + "! please insert money");
             }
 
-
+            Console.Write("$");
             string askForMoney = System.Console.ReadLine();
             double moneyGiven = double.Parse(askForMoney);
             double moneyRequired = price;
@@ -133,6 +135,7 @@ namespace VendingSimulator
                 {
                     moneyRequired = price - moneyGiven;
                     System.Console.WriteLine("Thank you, please insert $" + moneyRequired);
+                    Console.Write("$");
                     askForMoney = System.Console.ReadLine();
                     moneyGiven = double.Parse(askForMoney);
 
@@ -149,7 +152,7 @@ namespace VendingSimulator
             }
             System.Console.WriteLine();
 
-            System.Console.WriteLine("here is your " + name);
+            System.Console.WriteLine("Here is your " + name +". Have a great day and please hire me!;");
 
 
         }
