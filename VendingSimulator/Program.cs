@@ -169,8 +169,6 @@ namespace VendingSimulator
 
         }
 
-
-        // I don't feel the need to account for decimals because we are assuming a physical input, and no one is going to hit button 1.5
     }
 
 
