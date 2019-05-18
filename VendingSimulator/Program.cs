@@ -44,7 +44,15 @@ namespace VendingSimulator
             Button6.Name = "Water";
             Button6.isLit = true;
             Button6.Price = 1.50;
+               
 
+            Button[] B = new Button[6];
+            B[1] = Button1;
+            B[2] = Button2;
+            B[3] = Button3;
+            B[4] = Button4;
+            B[5] = Button5;
+            B[6] = Button6;
 
 
             System.Console.WriteLine(Button1.GetButtonStatus());
@@ -53,7 +61,6 @@ namespace VendingSimulator
             System.Console.WriteLine(Button4.GetButtonStatus());
             System.Console.WriteLine(Button5.GetButtonStatus());
             System.Console.WriteLine(Button6.GetButtonStatus());
-
 
 
             System.Console.WriteLine();
@@ -84,15 +91,36 @@ namespace VendingSimulator
                     askUser = System.Console.ReadLine();
                     userInput = int.Parse(askUser);
 
-                }
+                };
                 if (userInput < 6 && userInput > 1)
                 {
                     wrong = false;
-                    
+
                 }
 
-                // I don't feel the need to account for decimals because we are assuming a physical input, and no one is going to hit button 1.5
             }
+            int num = B[userInput].Num;
+            string name = B[userInput -1].Name;
+            bool isAvailable = B[userInput -1].isLit;
+            double price = B[userInput -1].Price;
+            
+
+            System.Console.WriteLine("Your selected beverage is is " + name);
+            if (isAvailable == false)
+            {
+                System.Console.WriteLine("Sorry, that beverage is unavailable at this time.");
+            }
+            else
+            {
+                System.Console.WriteLine("That will be $" + price + " please insert money below");
+            }
+
+
+        }
+
+        public static int userInput { get; private set; }
+        // I don't feel the need to account for decimals because we are assuming a physical input, and no one is going to hit button 1.5
+    }
             //  public double user selected = 0;
 
         }
@@ -101,6 +129,6 @@ namespace VendingSimulator
             
 
 
-    }
-}
+    
+
 
